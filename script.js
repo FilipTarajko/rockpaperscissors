@@ -28,10 +28,7 @@ function determineRoundWinner(playerSelection, computerSelection)
     }
 }
 
-let roundsWon = 0;
-let roundsLost = 0;
-
-while(roundsWon<3&&roundsLost<3)
+function playRound()
 {
     let playerSelection = (window.prompt("Enter your choice: ")).toLowerCase();
     let computerSelection = computerPlay();
@@ -48,11 +45,24 @@ while(roundsWon<3&&roundsLost<3)
     }
     console.log(`Score: ${roundsWon}:${roundsLost}`);
 }
-if(roundsWon==3)
+
+function announceWinner()
 {
-    console.log("You win!");
+    if(roundsWon==3)
+    {
+        console.log("You win!");
+    }
+    else
+    {
+        console.log("You lose!");
+    }
 }
-else
+
+let roundsWon = 0;
+let roundsLost = 0;
+
+while(roundsWon<3&&roundsLost<3)
 {
-    console.log("You lose!");
+    playRound();
 }
+announceWinner();
