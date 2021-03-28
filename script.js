@@ -6,8 +6,6 @@ function computerPlay()
 
 function determineRoundWinner(playerSelection, computerSelection)
 {
-    console.log(`Computer's choice: ${computerSelection}, player's choice: ${playerSelection}`)
-    
     if(playerSelection==computerSelection)
     {
         return("tie!");
@@ -24,10 +22,29 @@ function determineRoundWinner(playerSelection, computerSelection)
     {
         return("computer wins!");
     }
-
+    else
+    {
+        return("incorrect choice!");
+    }
 }
 
-let playerSelection = (window.prompt("Enter your choice: ")).toLowerCase();
-let computerSelection = computerPlay();
+let roundsWon = 0;
+let roundsLost = 0;
 
-console.log(determineRoundWinner(playerSelection, computerSelection));
+while(roundsWon<3&&roundsLost<3)
+{
+    let playerSelection = (window.prompt("Enter your choice: ")).toLowerCase();
+    let computerSelection = computerPlay();
+
+    console.log(`Computer's choice: ${computerSelection}, player's choice: ${playerSelection}`)
+    console.log(determineRoundWinner(playerSelection, computerSelection));
+    if(determineRoundWinner(playerSelection, computerSelection) == "player wins!")
+    {
+        roundsWon++;
+    }
+    else if(determineRoundWinner(playerSelection, computerSelection) == "computer wins!")
+    {
+        roundsLost++;
+    }
+    console.log(`Score: ${roundsWon}:${roundsLost}`);
+}
