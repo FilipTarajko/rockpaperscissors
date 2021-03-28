@@ -48,3 +48,11 @@ while(roundsWon<3&&roundsLost<3)
     }
     console.log(`Score: ${roundsWon}:${roundsLost}`);
 }
+if(roundsWon==3)
+{
+    console.log("You win!");
+}
+else
+{
+    console.log("You lose!");
+}
