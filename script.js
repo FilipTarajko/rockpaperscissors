@@ -79,6 +79,9 @@ function announceWinner()
     {
         winnerDisplay.textContent = "You lose!";
     }
+    buttons.forEach((button)=>{
+        button.hidden = true;
+    });
 }
 
 const winnerDisplay = document.querySelector('#winner');
