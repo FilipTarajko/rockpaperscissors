@@ -52,7 +52,7 @@ function displayRoundResult(){
 }
 
 function displayScore(){
-    console.log(`Score: ${roundsWon}:${roundsLost}`);
+    scoreDisplay.textContent = (`Score: ${roundsWon}:${roundsLost}`);
 }
 
 function playRound(targetSelection)
@@ -85,6 +85,7 @@ function announceWinner()
 }
 
 const winnerDisplay = document.querySelector('#winner');
+const scoreDisplay = document.querySelector('#scoreDisplay');
 const playersChoiceDisplay = document.querySelector('#playersChoiceDisplay');
 const computersChoiceDisplay = document.querySelector('#computersChoiceDisplay');
 const buttons = document.querySelectorAll('button');
