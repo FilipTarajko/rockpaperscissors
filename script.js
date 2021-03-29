@@ -52,7 +52,7 @@ function addScore(){
 }
 
 function displayRoundResult(){
-    console.log(determineRoundWinner(playerSelection, computerSelection));
+    roundResultDisplay.textContent = (`Last round: ${determineRoundWinner(playerSelection, computerSelection)}`);
 }
 
 function displayScore(){
@@ -89,6 +89,7 @@ function announceWinner()
 }
 
 const winnerDisplay = document.querySelector('#winner');
+const roundResultDisplay = document.querySelector('#roundResultDisplay');
 const scoreDisplay = document.querySelector('#scoreDisplay');
 const playersChoiceDisplay = document.querySelector('#playersChoiceDisplay');
 const computersChoiceDisplay = document.querySelector('#computersChoiceDisplay');
