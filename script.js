@@ -68,14 +68,14 @@ function playRound(targetSelection)
     displayRoundResult();
     addScore();
     displayScore();
-    if(roundsWon==5||roundsLost==5){
+    if((roundsWon>=targetRounds||roundsLost>=targetRounds)&&roundsWon!=roundsLost){
         announceWinner();
     }
 }
 
 function announceWinner()
 {
-    if(roundsWon==5)
+    if(roundsWon>roundsLost)
     {
         winnerDisplay.textContent = "You win!";
     }
@@ -102,3 +102,4 @@ let playerSelection;
 let computerSelection;
 let roundsWon = 0;
 let roundsLost = 0;
+let targetRounds = 5;
