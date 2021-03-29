@@ -28,13 +28,19 @@ function determineRoundWinner(playerSelection, computerSelection)
     }
 }
 
-function playRound()
-{
-    let playerSelection = (window.prompt("Enter your choice: ")).toLowerCase();
-    let computerSelection = computerPlay();
+function displayComputersChoice(){
+    console.log(`Computer's choice: ${computerSelection}`);
+}
 
-    console.log(`Computer's choice: ${computerSelection}, player's choice: ${playerSelection}`)
-    console.log(determineRoundWinner(playerSelection, computerSelection));
+function displayPlayersChoice(){
+    console.log(`Player's choice: ${playerSelection}`);
+}
+
+function getPlayersChoice(){
+    return (window.prompt("Enter your choice: ")).toLowerCase();
+}
+
+function addScore(){
     if(determineRoundWinner(playerSelection, computerSelection) == "player wins!")
     {
         roundsWon++;
@@ -43,7 +49,25 @@ function playRound()
     {
         roundsLost++;
     }
+}
+
+function displayRoundResult(){
+    console.log(determineRoundWinner(playerSelection, computerSelection));
+}
+
+function displayScore(){
     console.log(`Score: ${roundsWon}:${roundsLost}`);
+}
+
+function playRound()
+{
+    playerSelection = getPlayersChoice();
+    computerSelection = computerPlay();
+    displayPlayersChoice();
+    displayComputersChoice();
+    displayRoundResult();
+    addScore();
+    displayScore();
 }
 
 function announceWinner()
@@ -57,7 +81,8 @@ function announceWinner()
         console.log("You lose!");
     }
 }
-
+let playerSelection;
+let computerSelection;
 let roundsWon = 0;
 let roundsLost = 0;
 
