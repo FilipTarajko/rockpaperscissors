@@ -29,11 +29,11 @@ function determineRoundWinner(playerSelection, computerSelection)
 }
 
 function displayComputersChoice(){
-    console.log(`Computer's choice: ${computerSelection}`);
+    computersChoiceDisplay.textContent = (`Computer's choice: ${computerSelection}`);
 }
 
 function displayPlayersChoice(){
-    console.log(`Player's choice: ${playerSelection}`);
+    playersChoiceDisplay.textContent = (`Player's choice: ${playerSelection}`);
 }
 
 function addScore(){
@@ -85,6 +85,8 @@ function announceWinner()
 }
 
 const winnerDisplay = document.querySelector('#winner');
+const playersChoiceDisplay = document.querySelector('#playersChoiceDisplay');
+const computersChoiceDisplay = document.querySelector('#computersChoiceDisplay');
 const buttons = document.querySelectorAll('button');
 buttons.forEach((button)=>{
     button.addEventListener('click', ()=>
