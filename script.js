@@ -45,6 +45,10 @@ function addScore(){
     {
         roundsLost++;
     }
+    else{
+        roundsWon++;
+        roundsLost++;
+    }
 }
 
 function displayRoundResult(){
@@ -64,14 +68,14 @@ function playRound(targetSelection)
     displayRoundResult();
     addScore();
     displayScore();
-    if(roundsWon==3||roundsLost==3){
+    if(roundsWon==5||roundsLost==5){
         announceWinner();
     }
 }
 
 function announceWinner()
 {
-    if(roundsWon==3)
+    if(roundsWon==5)
     {
         winnerDisplay.textContent = "You win!";
     }
