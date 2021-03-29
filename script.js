@@ -36,10 +36,6 @@ function displayPlayersChoice(){
     console.log(`Player's choice: ${playerSelection}`);
 }
 
-function getPlayersChoice(){
-    return (window.prompt("Enter your choice: ")).toLowerCase();
-}
-
 function addScore(){
     if(determineRoundWinner(playerSelection, computerSelection) == "player wins!")
     {
@@ -59,35 +55,40 @@ function displayScore(){
     console.log(`Score: ${roundsWon}:${roundsLost}`);
 }
 
-function playRound()
+function playRound(targetSelection)
 {
-    playerSelection = getPlayersChoice();
+    playerSelection = targetSelection;
     computerSelection = computerPlay();
     displayPlayersChoice();
     displayComputersChoice();
     displayRoundResult();
     addScore();
     displayScore();
+    if(roundsWon==3||roundsLost==3){
+        announceWinner();
+    }
 }
 
 function announceWinner()
 {
     if(roundsWon==3)
     {
-        console.log("You win!");
+        winnerDisplay.textContent = "You win!";
     }
     else
     {
-        console.log("You lose!");
+        winnerDisplay.textContent = "You lose!";
     }
 }
+
+const winnerDisplay = document.querySelector('#winner');
+const buttons = document.querySelectorAll('button');
+buttons.forEach((button)=>{
+    button.addEventListener('click', ()=>
+    playRound(button.id));
+});
+
 let playerSelection;
 let computerSelection;
 let roundsWon = 0;
 let roundsLost = 0;
-
-while(roundsWon<3&&roundsLost<3)
-{
-    playRound();
-}
-announceWinner();
